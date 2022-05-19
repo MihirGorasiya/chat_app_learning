@@ -10,7 +10,7 @@ class StatusPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("This is Search page."),
+      child: Text("Status will appear here."),
     );
   }
 }

@@ -22,54 +22,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      key: Key("TabController"),
       initialIndex: 1,
       length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Text("Roadmap Learning"),
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(
-                  Icons.camera_alt_rounded,
-                  color: Colors.black,
-                ),
-              ),
-              Tab(
-                child: TabText(tabText: "Chats"),
-              ),
-              Tab(
-                child: TabText(tabText: "Status"),
-              ),
-              Tab(
-                child: TabText(tabText: "Calls"),
-              ),
-            ],
-          ),
-          actions: [
-            InkWell(
-              onTap: () {
-                _selectedIndex = 2;
-                setState(() {});
-              },
-              child: SizedBox(
-                width: 50,
-                child: Icon(
-                  Icons.more_vert,
-                ),
-              ),
-            ),
-          ],
+          bottom: TabBar(tabs: [
+            Tab(icon: Icon(Icons.camera_alt_rounded, color: Colors.black)),
+            Tab(child: TabText(tabText: "Chats")),
+            Tab(child: TabText(tabText: "Status")),
+            Tab(child: TabText(tabText: "Calls")),
+          ]),
+          actions: [SizedBox(width: 50, child: Icon(Icons.more_vert))],
         ),
         body: TabBarView(children: [
           CameraPage(
@@ -79,24 +47,6 @@ class _HomePageState extends State<HomePage> {
           StatusPage(),
           CallsPage(),
         ]),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: _onItemTapped,
-          currentIndex: _selectedIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.business),
-              label: "BUsiness",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money_rounded),
-              label: "Office",
-            ),
-          ],
-        ),
       ),
     );
   }

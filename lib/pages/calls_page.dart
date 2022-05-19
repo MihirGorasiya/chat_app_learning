@@ -10,7 +10,7 @@ class CallsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("This is Settings page."),
+      child: Text("Your calls logs will land here really soon."),
     );
   }
 }
